@@ -1,26 +1,19 @@
 {
-    "manifest_version": 3,
-    "name": "GEHU Chrome Extension",
-    "version": "1.1",
-    "description": "An enhanced Chrome extension for GEHU students with dark mode, shortcuts, auto-fill, and notifications.",
-    "permissions": ["storage", "activeTab", "alarms", "notifications"],
-    "host_permissions": ["https://student.gehu.ac.in/*"],
-    "background": {
-      "service_worker": "background.js"
-    },
-    "action": {
-      "default_popup": "popup.html",
-      "default_icon": {
-        "16": "icons/icon16.png",
-        "48": "icons/icon48.png",
-        "128": "icons/icon128.png"
-      }
-    },
-    "content_scripts": [
-      {
-        "matches": ["https://student.gehu.ac.in/login"],
-        "js": ["content.js"]
-      }
-    ]
+  "manifest_version": 3,
+  "name": "EduBoost",
+  "version": "1.0",
+  "description": "Quick access to study resources, auto-fill forms, and ERP login.",
+  "permissions": ["storage", "scripting", "tabs"],
+  "host_permissions": ["https://*/*", "http://*/*"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "background": {
+    "service_worker": "background.js"
   }
-  
+}

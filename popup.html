@@ -3,28 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GEHU Extension</title>
+    <title>EduBoost</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h2>GEHU Extension</h2>
+    <h1>📚 EduBoost</h1>
 
-    <!-- Dark Mode Toggle -->
-    <button id="darkModeToggle">Toggle Dark Mode</button>
+    
+    <button id="openERP" class="erp-btn">Open College ERP</button>
 
-    <!-- Quick Access to GEHU Portal -->
-    <a href="https://student.gehu.ac.in" target="_blank">GEHU Student Portal</a>
-
-    <!-- Custom Shortcuts -->
-    <select id="resourceLinks">
-        <option value="https://geeksforgeeks.org">GeeksforGeeks</option>
-        <option value="https://leetcode.com">LeetCode</option>
-        <option value="https://coursera.org">Coursera</option>
+    <label for="studySites">Select Study Sites:</label>
+    <select id="studySites" multiple>
+        <option value="https://scholar.google.com">Google Scholar</option>
+        <option value="https://www.sciencedirect.com">ScienceDirect</option>
+        <option value="https://www.researchgate.net">ResearchGate</option>
+        <option value="https://www.wikipedia.org">Wikipedia</option>
     </select>
-    <button id="openResource">Go</button>
+    <button id="openSites" class="btn">Open Selected Sites</button>
 
-    <!-- Exam & Assignment Reminder -->
-    <button id="setReminder">Set Daily Reminder</button>
+    <button id="autoFill" class="btn">Auto-Fill Forms</button>
+
+    <div class="notes-section">
+        <button id="addNoteBtn" class="btn">Add Note</button>
+        <div id="noteInputContainer" style="display: none;">
+            <textarea id="noteInput" placeholder="Enter your note..."></textarea>
+            <button id="saveNoteBtn" class="btn">Save Note</button>
+        </div>
+        <ul id="notesList"></ul>
+    </div>
+    
 
     <script src="popup.js"></script>
 </body>

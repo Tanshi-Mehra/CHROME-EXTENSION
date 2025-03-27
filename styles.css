@@ -1,11 +1,138 @@
 body {
+    width: 370px;
+    background: linear-gradient(135deg, #74ebd5, #acb6e5);
     font-family: Arial, sans-serif;
     text-align: center;
-    width: 250px;
-    padding: 10px;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
 }
-button {
-    margin: 5px;
-    padding: 8px;
+
+h1 {
+    color: #fff;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.popup-container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn, .erp-btn {
+    display: block;
+    width: 90%;
+    padding: 12px;
+    margin: 10px auto;
+    border: 2px solid #007BFF;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
     cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    background: white;
+    color: #007BFF;
+}
+
+.btn:hover, .erp-btn:hover {
+    background-color: #007BFF;
+    color: white;
+    transform: scale(1.05);
+    box-shadow: 0px 3px 10px rgba(0, 123, 255, 0.4);
+}
+
+select {
+    width: 90%;
+    padding: 8px;
+    margin: 10px 0;
+    border: 2px solid #007BFF;
+    border-radius: 5px;
+    background: white;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    max-height: 150px;
+    overflow-y: auto;
+}
+
+ul li {
+    background: white;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #ddd;
+    transition: 0.3s;
+}
+
+ul li:hover {
+    background-color: #f1f1f1;
+    transform: scale(1.02);
+}
+
+/* Notes Section Styling */
+.notes-section {
+    text-align: center;
+    margin-top: 15px;
+}
+
+/* Textarea Styling */
+#noteInput {
+    width: 90%;
+    height: 60px;
+    padding: 8px;
+    border: 2px solid #007BFF;
+    border-radius: 5px;
+    font-size: 14px;
+    resize: none; /* Disable resize for better UI */
+    display: block;
+    margin: 10px auto;
+}
+
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    max-height: 150px;
+    overflow-y: auto;
+}
+
+ul li {
+    background: white;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #ddd;
+    transition: 0.3s;
+}
+
+ul li:hover {
+    background-color: #f1f1f1;
+    transform: scale(1.02);
+}
+
+/* Remove Button */
+.remove-btn {
+    background: red;
+    color: white;
+    border: none;
+    padding: 5px 8px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.remove-btn:hover {
+    background: darkred;
 }
