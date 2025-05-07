@@ -3,7 +3,7 @@
   "name": "EduBoost",
   "version": "1.0",
   "description": "Quick access to study resources, auto-fill forms, and ERP login.",
-  "permissions": ["storage", "scripting", "tabs"],
+  "permissions": ["storage", "scripting", "tabs", "activeTab"],
   "host_permissions": ["https://*/*", "http://*/*"],
   "action": {
     "default_popup": "popup.html",
