@@ -6,7 +6,11 @@ body {
     padding: 15px;
     border-radius: 10px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    min-height: 100%;
+    height: auto;
+    overflow: hidden;
 }
+
 
 h1 {
     color: #fff;
@@ -98,14 +102,23 @@ ul li:hover {
 }
 
 
-ul {
-    list-style-type: none;
-    padding: 0;
-    max-height: 150px;
+.notes-scroll {
+    max-height: 200px;
     overflow-y: auto;
+    margin-top: 15px;
+    padding-right: 5px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: #fff;
 }
 
-ul li {
+#notesList {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#notesList li {
     background: white;
     padding: 10px;
     margin: 5px 0;
@@ -115,9 +128,10 @@ ul li {
     align-items: center;
     border: 1px solid #ddd;
     transition: 0.3s;
+
 }
 
-ul li:hover {
+#notesList li:hover {
     background-color: #f1f1f1;
     transform: scale(1.02);
 }
@@ -137,3 +151,17 @@ ul li:hover {
     background: darkred;
 }
 
+.edit-btn {
+    background: #28a745;
+    color: white;
+    border: none;
+    padding: 5px 8px;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-right: 5px;
+    transition: 0.3s;
+}
+
+.edit-btn:hover {
+    background: #218838;
+}

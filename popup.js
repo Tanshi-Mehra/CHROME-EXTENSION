@@ -1,8 +1,9 @@
+// ✅ Open ERP Button
 document.getElementById("openERP").addEventListener("click", () => {
     chrome.tabs.create({ url: "https://student.gehu.ac.in/" });
 });
 
-// ✅ Open Selected Study Sites
+// ✅ Open Selected Study Site
 document.getElementById("study-sites").addEventListener("change", function () {
     let selectedSite = this.value;
     if (selectedSite) {
@@ -27,55 +28,79 @@ function autoFillForms() {
     if (pass) pass.value = "wGtHtCb9BNfT_yC";
 }
 
-
-// ✅ Function to Save Notes in Local Storage (Fix Overwriting Issue)
+// ✅ Save Notes to Local Storage
 function saveNotes() {
     let notes = [];
     document.querySelectorAll("#notesList li").forEach(li => {
-        let noteText = li.firstChild.textContent.trim();
+        let noteText = li.querySelector("p").textContent.trim();
         notes.push(noteText);
     });
-
-    localStorage.setItem("savedNotes", JSON.stringify(notes)); // Save to localStorage
+    localStorage.setItem("savedNotes", JSON.stringify(notes));
 }
 
-// ✅ Function to Load Notes from Local Storage
+// ✅ Load Notes from Local Storage
 function loadNotes() {
     let savedNotes = JSON.parse(localStorage.getItem("savedNotes")) || [];
-    document.getElementById("notesList").innerHTML = ""; // Clear UI before loading
-
+    document.getElementById("notesList").innerHTML = "";
     savedNotes.forEach(noteText => {
         addNoteToList(noteText);
     });
 }
 
-// ✅ Function to Add Note to UI & Save to Local Storage
+// ✅ Add a Note to UI
 function addNoteToList(noteText) {
     let li = document.createElement("li");
-    li.innerHTML = `${noteText} <button class="remove-btn">Remove</button>`;
 
-    // ✅ Remove Button Functionality
-    li.querySelector(".remove-btn").addEventListener("click", function () {
-        li.remove();
-        saveNotes(); // Update localStorage after deletion
+    // Note Paragraph
+    let p = document.createElement("p");
+    p.textContent = noteText;
+
+    // Buttons Container
+    let buttonContainer = document.createElement("div");
+
+    // Edit Button
+    let editBtn = document.createElement("button");
+    editBtn.textContent = "Edit";
+    editBtn.className = "edit-btn";
+    editBtn.addEventListener("click", () => {
+        let newText = prompt("Edit your note:", p.textContent);
+        if (newText !== null && newText.trim() !== "") {
+            p.textContent = newText.trim();
+            saveNotes();
+        }
     });
+
+    // Remove Button
+    let removeBtn = document.createElement("button");
+    removeBtn.textContent = "Delete";
+    removeBtn.className = "remove-btn";
+    removeBtn.addEventListener("click", () => {
+        li.remove();
+        saveNotes();
+    });
+
+    buttonContainer.appendChild(editBtn);
+    buttonContainer.appendChild(removeBtn);
+
+    li.appendChild(p);
+    li.appendChild(buttonContainer);
 
     document.getElementById("notesList").appendChild(li);
 }
 
-// ✅ Add Note Button Click
+// ✅ Show Input Box
 document.getElementById("addNoteBtn").addEventListener("click", function () {
     document.getElementById("noteInputContainer").style.display = "block";
 });
 
-// ✅ Save Note Button Click
+// ✅ Save New Note
 document.getElementById("saveNoteBtn").addEventListener("click", function () {
     let noteText = document.getElementById("noteInput").value;
     if (noteText.trim() !== "") {
-        addNoteToList(noteText); // Add note to UI
-        saveNotes(); // Save notes in localStorage
-        document.getElementById("noteInput").value = ""; // Clear input
-        document.getElementById("noteInputContainer").style.display = "none"; // Hide input
+        addNoteToList(noteText.trim());
+        saveNotes();
+        document.getElementById("noteInput").value = "";
+        document.getElementById("noteInputContainer").style.display = "none";
     }
 });
 
