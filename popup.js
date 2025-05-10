@@ -1,3 +1,20 @@
+const quotes = [
+  "Believe in yourself.",
+"Keep pushing forward!",
+"Every day is a new beginning.",
+"Code. Learn. Repeat.",
+"You’re closer than you think!",
+"One step at a time!",
+"You can do this!",
+"Hard work pays off.",
+"Believe in yourself and all that you are.",
+"Push yourself, no one else will.",
+"Small progress is still progress.",
+"You are capable of amazing things.",
+"Hard work beats talent when talent doesn’t work hard."];
+
+
+
 // ✅ Open ERP Button
 document.getElementById("openERP").addEventListener("click", () => {
     chrome.tabs.create({ url: "https://student.gehu.ac.in/" });
@@ -106,3 +123,26 @@ document.getElementById("saveNoteBtn").addEventListener("click", function () {
 
 // ✅ Load Notes on Page Load
 document.addEventListener("DOMContentLoaded", loadNotes);
+const searchEngineUrls = {
+    "Google Scholar": "https://scholar.google.com/scholar?q=",
+    "GeeksForGeeks": "https://www.geeksforgeeks.org/?s=",
+    "Wikipedia": "https://en.wikipedia.org/wiki/Special:Search?search="
+};
+
+document.getElementById("quickSearchBtn").addEventListener("click", () => {
+    const query = document.getElementById("quickSearchInput").value.trim();
+    if (query !== "") {
+        for (let site in searchEngineUrls) {
+            chrome.tabs.create({ url: searchEngineUrls[site] + encodeURIComponent(query) });
+        }
+    }
+});
+document.addEventListener("DOMContentLoaded", () => {
+    const quoteElement = document.getElementById("quote");
+    const quote = quotes[Math.floor(Math.random() * quotes.length)];
+    quoteElement.innerText = `"${quote}"`;
+
+    setTimeout(() => {
+        quoteElement.classList.add("show");
+    }, 100);
+});

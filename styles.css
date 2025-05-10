@@ -10,8 +10,6 @@ body {
     height: auto;
     overflow: hidden;
 }
-
-
 h1 {
     color: #fff;
     font-size: 22px;
@@ -135,8 +133,6 @@ ul li:hover {
     background-color: #f1f1f1;
     transform: scale(1.02);
 }
-
-/* Remove Button */
 .remove-btn {
     background: red;
     color: white;
@@ -164,4 +160,28 @@ ul li:hover {
 
 .edit-btn:hover {
     background: #218838;
+}
+.search-input {
+    width: 80%;
+    padding: 10px;
+    border: 2px solid #007BFF;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+.motivational-text {
+    font-style: italic;
+    font-size: 20px;
+    color: #7d0f0f;
+    margin-bottom: 12px;
+    text-align: center;
+    padding: 0 10px;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.motivational-text.show {
+    opacity: 1;
+    transform: translateY(0);
 }
