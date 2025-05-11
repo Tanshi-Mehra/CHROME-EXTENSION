@@ -146,3 +146,20 @@ document.addEventListener("DOMContentLoaded", () => {
         quoteElement.classList.add("show");
     }, 100);
 });
+document.getElementById("setReminderBtn").addEventListener("click", () => {
+    const reminderText = document.getElementById("reminderText").value.trim();
+    const reminderTime = new Date(document.getElementById("reminderTime").value).getTime();
+
+    if (reminderText && reminderTime > Date.now()) {
+        chrome.runtime.sendMessage({
+            type: "setReminder",
+            text: reminderText,
+            time: reminderTime
+        });
+        alert("Reminder set!");
+        document.getElementById("reminderText").value = "";
+        document.getElementById("reminderTime").value = "";
+    } else {
+        alert("Please enter a valid reminder and a future time.");
+    }
+});
