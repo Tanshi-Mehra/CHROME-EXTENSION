@@ -192,3 +192,11 @@ ul li:hover {
   border-radius: 5px;
   font-size: 13px;
 }
+.input {
+    padding: 10px;
+    width: 90%;
+    margin-bottom: 10px;
+    font-size: 14px;
+    border: 2px solid #007BFF;
+    border-radius: 5px;
+}

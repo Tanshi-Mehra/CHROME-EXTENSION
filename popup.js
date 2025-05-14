@@ -63,7 +63,6 @@ function loadNotes() {
 function addNoteToList(noteText) {
     let li = document.createElement("li");
 
-
     let p = document.createElement("p");
     p.textContent = noteText;
 
@@ -88,14 +87,31 @@ function addNoteToList(noteText) {
         saveNotes();
     });
 
+    // 📥 Download Button with numbering
+    let downloadBtn = document.createElement("button");
+    downloadBtn.textContent = "📥";
+    downloadBtn.className = "download-btn";
+    downloadBtn.addEventListener("click", () => {
+        const index = [...document.querySelectorAll("#notesList li")].indexOf(li) + 1;
+        const blob = new Blob([noteText], { type: "text/plain" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = `Note_${index}.txt`;
+        a.click();
+        URL.revokeObjectURL(url);
+    });
+
     buttonContainer.appendChild(editBtn);
     buttonContainer.appendChild(removeBtn);
+    buttonContainer.appendChild(downloadBtn);
 
     li.appendChild(p);
     li.appendChild(buttonContainer);
 
     document.getElementById("notesList").appendChild(li);
 }
+
 
 document.getElementById("addNoteBtn").addEventListener("click", function () {
     document.getElementById("noteInputContainer").style.display = "block";
@@ -150,5 +166,17 @@ document.getElementById("setReminderBtn").addEventListener("click", () => {
         document.getElementById("reminderTime").value = "";
     } else {
         alert("Please enter a valid reminder and a future time.");
+    }
+});
+
+document.getElementById("unlockNotesBtn").addEventListener("click", () => {
+    const enteredPassword = document.getElementById("notePassword").value;
+    const correctPassword = "1234"; // You can change this or make it dynamic
+
+    if (enteredPassword === correctPassword) {
+        document.getElementById("notesArea").style.display = "block";
+        document.getElementById("secureNoteSection").style.display = "none";
+    } else {
+        alert("Incorrect password!");
     }
 });
