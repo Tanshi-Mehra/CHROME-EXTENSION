@@ -15,12 +15,11 @@ const quotes = [
 
 
 
-// ✅ Open ERP Button
 document.getElementById("openERP").addEventListener("click", () => {
     chrome.tabs.create({ url: "https://student.gehu.ac.in/" });
 });
 
-// ✅ Open Selected Study Site
+
 document.getElementById("study-sites").addEventListener("change", function () {
     let selectedSite = this.value;
     if (selectedSite) {
@@ -28,7 +27,6 @@ document.getElementById("study-sites").addEventListener("change", function () {
     }
 });
 
-// ✅ Auto-Fill Forms
 document.getElementById("autoFill").addEventListener("click", async () => {
     let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
     chrome.scripting.executeScript({
@@ -45,7 +43,6 @@ function autoFillForms() {
     if (pass) pass.value = "wGtHtCb9BNfT_yC";
 }
 
-// ✅ Save Notes to Local Storage
 function saveNotes() {
     let notes = [];
     document.querySelectorAll("#notesList li").forEach(li => {
@@ -55,7 +52,6 @@ function saveNotes() {
     localStorage.setItem("savedNotes", JSON.stringify(notes));
 }
 
-// ✅ Load Notes from Local Storage
 function loadNotes() {
     let savedNotes = JSON.parse(localStorage.getItem("savedNotes")) || [];
     document.getElementById("notesList").innerHTML = "";
@@ -64,18 +60,15 @@ function loadNotes() {
     });
 }
 
-// ✅ Add a Note to UI
 function addNoteToList(noteText) {
     let li = document.createElement("li");
 
-    // Note Paragraph
+
     let p = document.createElement("p");
     p.textContent = noteText;
 
-    // Buttons Container
     let buttonContainer = document.createElement("div");
 
-    // Edit Button
     let editBtn = document.createElement("button");
     editBtn.textContent = "Edit";
     editBtn.className = "edit-btn";
@@ -87,7 +80,6 @@ function addNoteToList(noteText) {
         }
     });
 
-    // Remove Button
     let removeBtn = document.createElement("button");
     removeBtn.textContent = "Delete";
     removeBtn.className = "remove-btn";
@@ -105,12 +97,10 @@ function addNoteToList(noteText) {
     document.getElementById("notesList").appendChild(li);
 }
 
-// ✅ Show Input Box
 document.getElementById("addNoteBtn").addEventListener("click", function () {
     document.getElementById("noteInputContainer").style.display = "block";
 });
 
-// ✅ Save New Note
 document.getElementById("saveNoteBtn").addEventListener("click", function () {
     let noteText = document.getElementById("noteInput").value;
     if (noteText.trim() !== "") {
@@ -121,7 +111,6 @@ document.getElementById("saveNoteBtn").addEventListener("click", function () {
     }
 });
 
-// ✅ Load Notes on Page Load
 document.addEventListener("DOMContentLoaded", loadNotes);
 const searchEngineUrls = {
     "Google Scholar": "https://scholar.google.com/scholar?q=",

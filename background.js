@@ -2,7 +2,6 @@ chrome.runtime.onInstalled.addListener(() => {
     console.log("EduBoost Installed!");
 });
 
-// ✅ Only one listener
 chrome.runtime.onMessage.addListener((message, _sender, _sendResponse) => {
     if (message.type === "setReminder") {
         const delayInMinutes = (message.time - Date.now()) / (1000 * 60);
@@ -12,7 +11,6 @@ chrome.runtime.onMessage.addListener((message, _sender, _sendResponse) => {
             return;
         }
 
-        // ✅ Clear any existing reminder alarm
         chrome.alarms.clear("eduReminder", () => {
             chrome.alarms.create("eduReminder", {
                 delayInMinutes: delayInMinutes
@@ -26,7 +24,7 @@ chrome.runtime.onMessage.addListener((message, _sender, _sendResponse) => {
 
 chrome.alarms.onAlarm.addListener((alarm) => {
     if (alarm.name === "eduReminder") {
-        chrome.alarms.clear("eduReminder"); // ✅ Ensure it fires only once
+        chrome.alarms.clear("eduReminder");
 
         chrome.storage.local.get("reminderText", (data) => {
             chrome.notifications.create({

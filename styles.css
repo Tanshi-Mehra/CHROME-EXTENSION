@@ -80,13 +80,12 @@ ul li:hover {
     transform: scale(1.02);
 }
 
-/* Notes Section Styling */
+
 .notes-section {
     text-align: center;
     margin-top: 15px;
 }
 
-/* Textarea Styling */
 #noteInput {
     width: 90%;
     height: 60px;
@@ -94,7 +93,7 @@ ul li:hover {
     border: 2px solid #007BFF;
     border-radius: 5px;
     font-size: 14px;
-    resize: none; /* Disable resize for better UI */
+    resize: none; 
     display: block;
     margin: 10px auto;
 }
