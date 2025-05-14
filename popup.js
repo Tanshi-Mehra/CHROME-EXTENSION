@@ -171,7 +171,7 @@ document.getElementById("setReminderBtn").addEventListener("click", () => {
 
 document.getElementById("unlockNotesBtn").addEventListener("click", () => {
     const enteredPassword = document.getElementById("notePassword").value;
-    const correctPassword = "1234"; // You can change this or make it dynamic
+    const correctPassword = "1234"; 
 
     if (enteredPassword === correctPassword) {
         document.getElementById("notesArea").style.display = "block";

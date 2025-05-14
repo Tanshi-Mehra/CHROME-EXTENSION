@@ -200,3 +200,15 @@ ul li:hover {
     border: 2px solid #007BFF;
     border-radius: 5px;
 }
+.download-btn {
+    margin-left: 10px;
+    background-color: #28a745;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.download-btn:hover {
+    background-color: #218838;
+}
