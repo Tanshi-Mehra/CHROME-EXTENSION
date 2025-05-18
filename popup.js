@@ -39,8 +39,8 @@ function autoFillForms() {
     let roll = document.querySelector('input[placeholder="User ID"]');
     let pass = document.querySelector('input[placeholder="Password"]');
 
-    if (roll) roll.value = "22012614";
-    if (pass) pass.value = "wGtHtCb9BNfT_yC";
+    if (roll) roll.value = "YOUR_STUDENT_ID";
+    if (pass) pass.value = "YOUR_pASSWORD"
 }
 
 function saveNotes() {
@@ -87,7 +87,7 @@ function addNoteToList(noteText) {
         saveNotes();
     });
 
-    // 📥 Download Button with numbering
+
     let downloadBtn = document.createElement("button");
     downloadBtn.textContent = "📥";
     downloadBtn.className = "download-btn";

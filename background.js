@@ -30,7 +30,7 @@ chrome.alarms.onAlarm.addListener((alarm) => {
             chrome.notifications.create({
                 type: "basic",
                 iconUrl: "icons/icon48.png",
-                title: "⏰ Eduboost-Reminder!",
+                title: "⏰Eduboost-Reminder!",
                 message: data.reminderText || "Don't forget your task!",
                 priority: 2
             }, () => {
