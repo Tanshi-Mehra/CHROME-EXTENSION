@@ -89,7 +89,7 @@ function addNoteToList(noteText) {
 
 
     let downloadBtn = document.createElement("button");
-    downloadBtn.textContent = "📥";
+    downloadBtn.textContent = "📥Download";
     downloadBtn.className = "download-btn";
     downloadBtn.addEventListener("click", () => {
         const index = [...document.querySelectorAll("#notesList li")].indexOf(li) + 1;
