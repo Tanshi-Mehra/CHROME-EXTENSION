@@ -39,8 +39,8 @@ function autoFillForms() {
     let roll = document.querySelector('input[placeholder="User ID"]');
     let pass = document.querySelector('input[placeholder="Password"]');
 
-    if (roll) roll.value = "YOUR_STUDENT_ID";
-    if (pass) pass.value = "YOUR_pASSWORD"
+    if (roll) roll.value = "22012614";
+    if (pass) pass.value = "Your_PAssword"
 }
 
 function saveNotes() {
